@@ -14,6 +14,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('home page'),
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ), 
       drawer: const MyDrawer(),
     );
