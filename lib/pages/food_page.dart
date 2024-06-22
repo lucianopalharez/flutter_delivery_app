@@ -17,7 +17,7 @@ class _FoodPageState extends State<FoodPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(widget.food.imagePath, width: double.infinity,),
+          Image.asset(widget.food.imagePath, width: double.infinity,fit: BoxFit.cover,),
 
           Padding(
             padding: const EdgeInsets.all(25.0),
@@ -33,7 +33,7 @@ class _FoodPageState extends State<FoodPage> {
                 ),
 
                 Text(
-                  widget.food.price.toString(),
+                  'R\$ ' + widget.food.price.toString(),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 16,
@@ -46,6 +46,14 @@ class _FoodPageState extends State<FoodPage> {
             
                 Text(
                   widget.food.description,
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+
+                Divider(
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
 
                 SizedBox(
@@ -68,8 +76,9 @@ class _FoodPageState extends State<FoodPage> {
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Theme.of(context).colorScheme.secondary
-                    )
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                    borderRadius: BorderRadius.circular(8)
                   ),
                   child: ListView.builder(
                     shrinkWrap: true,
@@ -81,7 +90,12 @@ class _FoodPageState extends State<FoodPage> {
                               
                       return CheckboxListTile(
                         title: Text(addon.name),
-                        subtitle: Text('R\$' + addon.price.toString()),
+                        subtitle: Text(
+                          'R\$ ' + addon.price.toString(),
+                          style: TextStyle( 
+                            color: Theme.of(context).colorScheme.primary
+                          ),
+                        ),
                         value: false, 
                         onChanged: (value) {
                               
@@ -92,7 +106,9 @@ class _FoodPageState extends State<FoodPage> {
                 )
               ],
             ),
-          )
+          ),
+
+          
         ],
       ),
     );
