@@ -17,33 +17,69 @@ class _FoodPageState extends State<FoodPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(widget.food.imagePath),
+          Image.asset(widget.food.imagePath, width: double.infinity,),
 
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [             
-              Text(widget.food.name),
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [             
+                Text(
+                  widget.food.name,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20
+                  ),
+                ),
 
-              Text(widget.food.description),
+                Text(
+                  widget.food.price.toString(),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 16,
+                  ),
+                ),
 
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: widget.food.availableAddons.length,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  Addon addon = widget.food.availableAddons[index];
+                SizedBox(
+                  height: 10,
+                ),
+            
+                Text(
+                  widget.food.description,
+                ),
 
-                  return CheckboxListTile(
-                    title: Text(addon.name),
-                    subtitle: Text('R\$' + addon.price.toString()),
-                    value: false, 
-                    onChanged: (value) {
+                SizedBox(
+                  height: 10,
+                ),
 
-                    }
-                  );
-                },
-              )
-            ],
+                Text(
+                  "Add-ons",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+            
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: widget.food.availableAddons.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    Addon addon = widget.food.availableAddons[index];
+            
+                    return CheckboxListTile(
+                      title: Text(addon.name),
+                      subtitle: Text('R\$' + addon.price.toString()),
+                      value: false, 
+                      onChanged: (value) {
+            
+                      }
+                    );
+                  },
+                )
+              ],
+            ),
           )
         ],
       ),
