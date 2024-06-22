@@ -60,7 +60,19 @@ class Restaurant {
 
   //getters
 
+  List<Food> get menu => _menu;
+
   //operations
 
+    // add to cart
+    // remove from the cart
+    // get total price of cart
+    // get total number of items in cart
+    // clean the cart
+
   //helpers
+
+    // generate a receipt
+    // format double value into money
+    // format list of addons into a string summary
 }
