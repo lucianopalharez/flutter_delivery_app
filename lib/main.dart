@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/auth/login_or_register.dart';
+import 'package:flutter_food/models/restaurant.dart';
 import 'package:flutter_food/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => ThemeProvider(),
-    child: const MainApp()
-  ));
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(
+        create: (context) => ThemeProvider(),
+        child: const MainApp()
+      ),
+      ChangeNotifierProvider(
+        create: (context) => Restaurant(),
+        child: const MainApp()
+      ),
+    ],
+    child: const MainApp(),
+    )
+  );
 }
 
 class MainApp extends StatelessWidget {
