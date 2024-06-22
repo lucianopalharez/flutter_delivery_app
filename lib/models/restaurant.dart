@@ -1,4 +1,6 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_food/models/cart_item.dart';
 import 'package:flutter_food/models/food.dart';
 
 class Restaurant extends ChangeNotifier {
@@ -65,7 +67,18 @@ class Restaurant extends ChangeNotifier {
 
   //operations
 
+    // user cart 
+    final List<CartItem> _cart = [];
+
     // add to cart
+    void addToCart(Food food, List<Addon> selectedAddons) {
+      CartItem? cartItem = _cart.firstWhereOrNull((item) {
+        //check if the food items are the same
+
+        // check if the list of selected addons are the same
+      });
+    }
+
     // remove from the cart
     // get total price of cart
     // get total number of items in cart
