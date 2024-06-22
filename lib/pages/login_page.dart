@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_food/components/my_button.dart';
 import 'package:flutter_food/components/my_textfield.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  final void Function()? onTap;
 
+  const LoginPage({super.key, required this.onTap});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
 
   @override
@@ -73,9 +80,7 @@ class LoginPage extends StatelessWidget {
               ), 
 
               GestureDetector(
-                onTap: () {
-                  
-                },
+                onTap: widget.onTap,
                 child: Text(
                   "Register Now", 
                   style: TextStyle(
