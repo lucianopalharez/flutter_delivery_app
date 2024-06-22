@@ -60,23 +60,35 @@ class _FoodPageState extends State<FoodPage> {
                     fontWeight: FontWeight.bold
                   ),
                 ),
+
+                SizedBox(
+                  height: 10,
+                ),
             
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: widget.food.availableAddons.length,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    Addon addon = widget.food.availableAddons[index];
-            
-                    return CheckboxListTile(
-                      title: Text(addon.name),
-                      subtitle: Text('R\$' + addon.price.toString()),
-                      value: false, 
-                      onChanged: (value) {
-            
-                      }
-                    );
-                  },
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.secondary
+                    )
+                  ),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: widget.food.availableAddons.length,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) {
+                      Addon addon = widget.food.availableAddons[index];
+                              
+                      return CheckboxListTile(
+                        title: Text(addon.name),
+                        subtitle: Text('R\$' + addon.price.toString()),
+                        value: false, 
+                        onChanged: (value) {
+                              
+                        }
+                      );
+                    },
+                  ),
                 )
               ],
             ),
