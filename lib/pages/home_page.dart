@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_food/components/my_current_location.dart';
 import 'package:flutter_food/components/my_description_box.dart';
 import 'package:flutter_food/components/my_drawer.dart';
+import 'package:flutter_food/components/my_food_tile.dart';
 import 'package:flutter_food/components/my_sliver_app_bar.dart';
 import 'package:flutter_food/components/my_tab_bar.dart';
 import 'package:flutter_food/models/food.dart';
@@ -47,10 +48,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       return ListView.builder(
         itemCount: categoryMenu.length,
         physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(categoryMenu[index].name),
-          );
+          final food = categoryMenu[index];
+          return MyFoodTile(food: food, onTap: () {
+            
+          },);
         },
       );
 
