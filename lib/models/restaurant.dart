@@ -138,6 +138,10 @@ class Restaurant extends ChangeNotifier {
     }
 
     // clean the cart
+    void clearCart() {
+      _cart.clear();
+      notifyListeners();
+    }
 
   //helpers
 
