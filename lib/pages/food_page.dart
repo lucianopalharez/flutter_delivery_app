@@ -135,15 +135,19 @@ class _FoodPageState extends State<FoodPage> {
           ),
         ),
 
-        Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.secondary
-          ),
-          child: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_rounded,              
+        SafeArea(
+          child: Container(
+            margin: const EdgeInsets.only(left: 25),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
+              shape: BoxShape.circle
             ),
-            onPressed: () => Navigator.pop(context),
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios_rounded,              
+              ),
+              onPressed: () => Navigator.pop(context),
+            ),
           ),
         )
       ],
