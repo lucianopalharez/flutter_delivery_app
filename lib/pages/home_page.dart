@@ -4,6 +4,7 @@ import 'package:flutter_food/components/my_description_box.dart';
 import 'package:flutter_food/components/my_drawer.dart';
 import 'package:flutter_food/components/my_sliver_app_bar.dart';
 import 'package:flutter_food/components/my_tab_bar.dart';
+import 'package:flutter_food/models/food.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   void initState() {
     // TODO: implement initState
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: FoodCategory.values.length, vsync: this);
   }
 
   @override
@@ -64,6 +65,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             ListView.builder(
               itemCount: 5,
               itemBuilder: (context, index) => Text("first tab items"),
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => Text("second tab items"),
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => Text("third tab items"),
             ),
             ListView.builder(
               itemCount: 5,
