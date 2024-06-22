@@ -18,3 +18,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - lib/images/burgers/
+    - lib/images/sides/
+    - lib/images/desserts/
+    - lib/images/drinks/
+    - lib/images/salads/
