@@ -74,9 +74,26 @@ class Restaurant extends ChangeNotifier {
     void addToCart(Food food, List<Addon> selectedAddons) {
       CartItem? cartItem = _cart.firstWhereOrNull((item) {
         //check if the food items are the same
+        bool isSameFood = item.food == food;
 
         // check if the list of selected addons are the same
-      });
+        bool isSameAddons = 
+          ListEquality().equals(item.selectedAddons, selectedAddons);
+
+        return isSameFood && isSameAddons;
+      });      
+    
+       // if item already exists, increase its quantity
+      if (cartItem != null) {
+        cartItem.quantity++;
+      }
+
+      // case not exists same produtct
+      else {
+        _cart.add(CartItem(food: food, selectedAddons: selectedAddons));
+      }
+
+      notifyListeners();
     }
 
     // remove from the cart
