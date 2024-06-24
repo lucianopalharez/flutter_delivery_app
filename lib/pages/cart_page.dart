@@ -46,21 +46,23 @@ class CartPage extends StatelessWidget {
             )
           ],
         ),
-        body: Column(
-          children: [
-            Expanded(child: 
-              ListView.builder(
-                itemBuilder: (context, index) { 
+        body: userCart.isEmpty 
+          ? const Text('Cart is empty')           
+          : Column(
+            children: [
+              Expanded(child: 
+                ListView.builder(
+                  itemBuilder: (context, index) { 
 
-                  final cartItem = userCart[index];
+                    final cartItem = userCart[index];
 
-                  return MyCartTile(cartItem: cartItem);
-                },
-                itemCount: userCart.length,
+                    return MyCartTile(cartItem: cartItem);
+                  },
+                  itemCount: userCart.length,
+                )
               )
-            )
-          ],
-        ),
+            ],
+          ),
       );
     }, 
     
