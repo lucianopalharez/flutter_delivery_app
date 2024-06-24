@@ -46,7 +46,7 @@ class MyCartTile extends StatelessWidget {
                       Text('R\$ ' + cartItem.food.price.toString())
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
               
                   MyQuantitySelector(
                     quantity: cartItem.quantity, 
@@ -57,10 +57,34 @@ class MyCartTile extends StatelessWidget {
                     onDecrement: () {
                       restaurant.removeFromCart(cartItem);
                     }, 
-                  )
+                  ),
+
                 ],
               ),
-            )
+            ),
+
+            SizedBox(
+              height: cartItem.selectedAddons.isEmpty ? 0 : 60,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: cartItem.selectedAddons.map(
+                  (addon) => FilterChip(
+                    label: Row(
+                      children: [
+                        Text(addon.name), 
+
+                        Text('R\$ ' + addon.price.toString())
+                      ],
+                    ), 
+                    onSelected: (value) {
+                      
+                    },
+                  )
+                ).toList(),
+              ),
+            ),
+
+
           ],
         ),
       ),
