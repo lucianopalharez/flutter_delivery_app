@@ -20,8 +20,12 @@ class CartPage extends StatelessWidget {
           children: [
             Expanded(child: 
               ListView.builder(
-                itemBuilder: (context, index) => 
-                  ListTile(title: Text(userCart[index].food.name),),
+                itemBuilder: (context, index) { 
+
+                  final cartItem = userCart[index];
+
+                  return ListTile(title: Text(cartItem.food.name),);
+                },
                 itemCount: userCart.length,
               )
             )
