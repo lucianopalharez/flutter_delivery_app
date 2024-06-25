@@ -6,8 +6,9 @@ class MyReceipt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25, right: 25, bottom: 25),
+      padding: const EdgeInsets.only(left: 25, right: 25, bottom: 25, top: 50),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text('Thank you for your order!'), 
           Container(
