@@ -71,7 +71,7 @@ class CartPage extends StatelessWidget {
             ),
 
             MyButton(text: "Go to checkout", onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage(),))
+              Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage(),));
             },), 
 
             SizedBox(
