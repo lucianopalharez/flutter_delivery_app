@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_food/components/my_button.dart';
 import 'package:flutter_food/components/my_cart_tile.dart';
 import 'package:flutter_food/models/restaurant.dart';
+import 'package:flutter_food/pages/payment_page.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
@@ -70,7 +71,7 @@ class CartPage extends StatelessWidget {
             ),
 
             MyButton(text: "Go to checkout", onTap: () {
-              
+              Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage(),))
             },), 
 
             SizedBox(
