@@ -30,6 +30,7 @@ class DeliveryProgressPage extends StatelessWidget {
           topRight: Radius.circular(40)
         )
       ),
+      padding: const EdgeInsets.all(25),
       child: Row(
         children: [
           // profile pic of driver
@@ -42,11 +43,71 @@ class DeliveryProgressPage extends StatelessWidget {
               onPressed: () {
                 
               }, 
-              icon: Icon(Icons.person)
+              icon: const Icon(Icons.person)
             ),
           ),
 
+          const SizedBox(
+            width: 10,
+          ),
+
           //driver details
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Mitch Koko',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold, 
+                  fontSize: 18, 
+                  color: Theme.of(context).colorScheme.inversePrimary
+                ),
+              ),
+              Text('Driver',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary
+                ),
+              ),
+            ],
+          ),
+
+          const Spacer(),
+
+          Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surface,
+                  shape: BoxShape.circle
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    
+                  }, 
+                  icon: const Icon(Icons.message),
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+
+              const SizedBox(
+                width: 10,
+              ),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surface,
+                  shape: BoxShape.circle
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    
+                  }, 
+                  icon: const Icon(Icons.call),
+                  color: Colors.green,
+                ),
+              ),
+
+            ],
+          ),
 
           // message button
 
