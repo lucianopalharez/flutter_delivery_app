@@ -30,7 +30,11 @@ class MyReceipt extends StatelessWidget {
                   Widget? child) 
                   => Text(restaurant.displayCartReceipt())                
               ),
-            )
+            ), 
+            const SizedBox(
+              height: 25,
+            ),
+            const Text('Estimated delivery time is: 4:10 PM'), 
           ],
         ),
       ),
