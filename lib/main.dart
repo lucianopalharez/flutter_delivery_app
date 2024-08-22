@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_food/auth/login_or_register.dart';
+import 'package:flutter_food/services/auth/auth_middleware.dart';
+import 'package:flutter_food/services/auth/login_or_register.dart';
 import 'package:flutter_food/firebase_options.dart';
 import 'package:flutter_food/models/restaurant.dart';
 import 'package:flutter_food/themes/theme_provider.dart';
@@ -33,7 +34,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginOrRegister(), 
+      home: const AuthMiddleware(), 
       theme: Provider.of<ThemeProvider>(context).themeData,
 
     );
