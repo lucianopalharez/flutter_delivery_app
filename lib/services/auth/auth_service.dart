@@ -27,6 +27,9 @@ class AuthService {
   }
 
   // sair
+  Future<void> signOut() async {
+    return await _firebaseAuth.signOut();
+  }
 
   // se registrar
   Future<UserCredential> signUpUser(String email, password) async {
