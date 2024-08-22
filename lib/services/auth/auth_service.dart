@@ -6,8 +6,25 @@ class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   // pega o usuario atual
+  User? getUser() {
+    return _firebaseAuth.currentUser;
+  }
 
   // entrar
+  Future<UserCredential> signInUser(String email, password) async {
+    try {
+      UserCredential userCredential = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email, 
+        password: password
+      );
+    
+      return userCredential;
+    } 
+
+    on FirebaseAuthException catch (e) {
+      throw Exception(e.code);
+    }
+  }
 
   // sair
 
