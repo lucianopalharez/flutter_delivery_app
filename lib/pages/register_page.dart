@@ -16,6 +16,19 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
 
+  void register() {
+    
+    // auth service
+
+    // senhas são iguais
+
+        // registra usuário
+        
+        // erro para registrar usuário
+
+    // senhas não são iguais
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,9 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
           MyButton(
             text: "Sign Up",
-            onTap: () {
-              
-            },          
+            onTap: register,          
           ), 
 
           SizedBox(
