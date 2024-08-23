@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/components/my_receipt.dart';
+import 'package:flutter_food/models/restaurant.dart';
 import 'package:flutter_food/services/auth/database/firestore_service.dart';
-
+import 'package:provider/provider.dart';
 class DeliveryProgressPage extends StatefulWidget {
   const DeliveryProgressPage({super.key});
 
@@ -17,6 +18,9 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    String order = context.read<Restaurant>().displayCartReceipt();
+    db.saveOrder(order);
   }
 
   @override
