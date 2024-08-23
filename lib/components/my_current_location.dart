@@ -39,15 +39,15 @@ class MyCurrentLocation extends StatelessWidget {
             child: Row(
               children: [
                 Consumer<Restaurant>(
-                  builder: (context, value, child) => 
-                    Text('')
+                  builder: (context, restaurant, child) => 
+                    Text(restaurant.deliveryAddress,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        fontWeight: FontWeight.bold
+                      )
+                    ),
                 ),
-                Text("6901 Hollywood Bly",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                    fontWeight: FontWeight.bold
-                  )
-                ),
+                
                   
                 Icon(Icons.keyboard_arrow_down_rounded)
               ],
