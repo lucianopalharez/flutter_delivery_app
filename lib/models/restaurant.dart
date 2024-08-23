@@ -65,6 +65,16 @@ class Restaurant extends ChangeNotifier {
   // user cart 
   final List<CartItem> _cart = [];
 
+  // delivery address
+
+  String _deliveryAddress = 'Rua 55, 895';
+  String get deliveryAddress => _deliveryAddress;
+  
+  void updateDeliveryAddress(String newAddress) {
+    _deliveryAddress = newAddress;
+    notifyListeners();
+  }
+
   //getters
 
   List<Food> get menu => _menu;
