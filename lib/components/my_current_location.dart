@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/models/restaurant.dart';
+import 'package:provider/provider.dart';
 
 class MyCurrentLocation extends StatelessWidget {
   const MyCurrentLocation({super.key});
@@ -36,6 +38,10 @@ class MyCurrentLocation extends StatelessWidget {
             onTap: () => openLocationSearchBox(context),
             child: Row(
               children: [
+                Consumer<Restaurant>(
+                  builder: (context, value, child) => 
+                    Text('')
+                ),
                 Text("6901 Hollywood Bly",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
