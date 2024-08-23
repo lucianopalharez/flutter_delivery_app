@@ -17,6 +17,13 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
 
   void signIn() {
+
+    // auth service
+
+    // realizar login
+
+    // erro para realizar login
+
     Navigator.push(context, MaterialPageRoute(
       builder: (context) => const HomePage(),      
     ));
