@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/components/my_button.dart';
 import 'package:flutter_food/components/my_textfield.dart';
+import 'package:flutter_food/services/auth/auth_service.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
@@ -16,17 +17,42 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
 
-  void register() {
+  void register() async {
     
     // auth service
+    final _authService = AuthService();
 
     // senhas são iguais
+    if (passwordController.text == confirmPassController.text) {
 
         // registra usuário
-        
-        // erro para registrar usuário
+        try {
+          await _authService.signUpUser(
+            emailController.text,
+            passwordController.text
+          );
+        }
 
+        // erro para registrar usuário
+        catch (e) {
+          showDialog(
+            context: context, 
+            builder: (context) => AlertDialog(
+              title: Text(e.toString()),
+            ),
+          );
+        }
+    }
+  
     // senhas não são iguais
+    else {
+      showDialog(
+        context: context, 
+        builder: (context) => const AlertDialog(
+          title: Text('Senhas não conferem!'),
+        ),
+      );
+    }
   }
 
   @override
