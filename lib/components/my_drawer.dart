@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/components/my_drawer_tile.dart';
 import 'package:flutter_food/pages/settings_page.dart';
+import 'package:flutter_food/services/auth/auth_service.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -35,7 +36,8 @@ class MyDrawer extends StatelessWidget {
           const Spacer(),
 
           MyDrawerTile(text: "L O G O U T", icon: Icons.logout, onTap: () {
-        
+            final authService = AuthService();
+            authService.signOut();
           },),
 
           SizedBox(
