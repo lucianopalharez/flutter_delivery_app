@@ -6,9 +6,13 @@ class MyCurrentLocation extends StatelessWidget {
   const MyCurrentLocation({super.key});
 
   void openLocationSearchBox(BuildContext context) {
+
+    TextEditingController addressController = TextEditingController();
+
     showDialog(context: context, builder: (context) => AlertDialog(
       title: const Text('Your Location'),
-      content: const TextField(
+      content: TextField(
+        controller: addressController,
         decoration: const InputDecoration(
           hintText: "Search address.."
         ),
