@@ -11,6 +11,8 @@ class DeliveryProgressPage extends StatefulWidget {
 
 class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
 
+  FirestoreService db = FirestoreService();
+
   @override
   void initState() {
     // TODO: implement initState
