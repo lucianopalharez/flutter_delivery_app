@@ -18,11 +18,17 @@ class MyCurrentLocation extends StatelessWidget {
         ),
       ), 
       actions: [
-        MaterialButton(onPressed: () => Navigator.pop(context),
+        MaterialButton(onPressed: () {
+            Navigator.pop(context);
+            addressController.clear();
+          },
           child: const Text("Cancel"),
         ),
         MaterialButton(onPressed: () {
+            String address = addressController.text;
+            context.read<Restaurant>().updateDeliveryAddress(address);
             Navigator.pop(context);
+            addressController.clear();
           },
           child: const Text("Save"),
         ),
