@@ -37,3 +37,9 @@ flutter pub add firebase_core
 ```
 flutter pub add firebase_auth
 ```
+
+# database firebase configuration
+
+```
+flutter pub add cloud_firestore 
+```
